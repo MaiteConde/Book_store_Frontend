@@ -1,0 +1,48 @@
+<form #addBookForm="ngForm" (submit)="addBook(addBookForm)">
+   <h2>Add book</h2>
+  <mat-form-field >
+    <mat-label>Name</mat-label>
+    <input matInput name="name"  #name="ngModel" name="name" id="name" ngModel required>
+  </mat-form-field>
+
+  <mat-form-field>
+    <mat-label>Author</mat-label>
+    <mat-select name="AuthorId" #AuthorId="ngModel" id="AuthorId" ngModel required>
+      <mat-option *ngFor="let author of authors" [value]="author.id">
+        {{author.name}}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+
+  <mat-form-field>
+    <mat-label>Price</mat-label>
+    <input matInput name="price" type="number" #price="ngModel" name="price" id="price" ngModel required>
+  </mat-form-field>
+
+  <mat-form-field>
+    <mat-label>Stock</mat-label>
+    <input matInput name="stock" type="number" #stock="ngModel" name="stock" id="stock" ngModel required>
+  </mat-form-field>
+
+  <mat-form-field>
+    <mat-label>Resume</mat-label>
+    <input matInput name="resume" #resume="ngModel" name="resume" id="resume" ngModel required>
+  </mat-form-field>
+
+  <mat-form-field>
+    <mat-label>Genre</mat-label>
+    <mat-select name="GenreId" #GenreId="ngModel" id="GenreId" ngModel required>
+      <mat-option *ngFor="let genre of genres" [value]="genre.id">
+        {{genre.name}}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+
+  <mat-form-field>
+    <mat-label>Image</mat-label>
+    <input matInput name="image_path" #image_path="ngModel" name="image_path" id="image_path" ngModel required>
+  </mat-form-field>
+
+  <button mat-raised-button color="primary" type="submit">Send</button>
+ 
+</form>

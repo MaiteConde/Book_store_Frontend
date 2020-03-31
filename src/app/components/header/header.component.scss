@@ -1,0 +1,16 @@
+mat-toolbar{
+    background-color: white;
+    display: flex;
+    justify-content: space-between;
+    height: 4.5em;
+   
+        button{
+            margin:0.3em;
+            cursor: pointer;
+        }
+        img {
+            width: 9em;
+            margin-top: 0.5em;
+        }
+       
+}

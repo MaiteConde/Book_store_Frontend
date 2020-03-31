@@ -1,0 +1,17 @@
+footer {
+    display: flex;
+    justify-content: space-between;
+    background-color: rgb(55, 70, 93);
+    height: 10em;
+    color: white;
+    padding: 2em;
+    .aboutus {
+        display: flex;
+        flex-direction: column;
+    }
+    span {
+        padding: 0.5em;
+
+    }
+   }
+   

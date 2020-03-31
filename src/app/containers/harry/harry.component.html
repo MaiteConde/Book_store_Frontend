@@ -1,0 +1,19 @@
+<div class="title">
+  <!-- <img src="assets/images/lol.png" alt=""> -->
+<div class="text">
+  <h1>Books</h1>
+  <p>“Books are like mirrors: if a fool looks in, you cannot expect a genius to look out.”
+    ― J.K. Rowling</p>
+
+</div>
+
+</div>
+
+<div class="books">
+    <div class="book" *ngFor="let book of books">
+        <img src="{{book.image_path}}" alt="" routerLink="/book/{{book.id}}">
+      <p>{{book.name}}</p>
+      <h3>${{book.price}}</h3>
+    </div>
+  
+  </div>

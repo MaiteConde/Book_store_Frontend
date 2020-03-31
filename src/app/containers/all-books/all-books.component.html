@@ -1,0 +1,14 @@
+<div class="title">
+  <h1>Shop list</h1>
+  <p> “The person, be it gentleman or lady, who has not pleasure in a good novel, must be intolerably stupid.”
+― Jane Austen</p>
+</div>
+<div class="books">
+
+    <div class="book" *ngFor="let book of books">
+      <img src="{{book.image_path}}" alt="" routerLink="/book/{{book.id}}">
+      <p>{{book.name}}</p>
+      <h3>${{book.price}}</h3>
+    </div>
+  
+  </div>

@@ -1,0 +1,48 @@
+.title {
+    height: 30em;
+   background-color: rgb(245, 242, 237);
+   background-image: url(https://data.whicdn.com/images/219406740/original.png);
+    background-size: contain;
+    background-position: right;
+    background-repeat: no-repeat;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+   p {
+       max-width: 30em;
+   }
+  
+    h1 {
+        font-family: 'Crimson Text', serif !important;
+        font-size: 6em;
+        padding: 0.5em;
+    }
+
+}
+
+.books {
+    padding: 5em;
+    display: flex;
+    flex-wrap: wrap;
+    margin-left: 8em;
+   
+    .book {
+        padding: 4em;
+        width: 20em;
+        text-align: center;
+        text-overflow: ellipsis;
+        max-width: 10em;
+        margin: 2em;
+       
+    }
+    img {
+        height: 15em;
+        cursor: pointer;
+    }
+  
+    h3 {
+   
+        color: grey;
+    }
+}

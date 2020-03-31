@@ -1,0 +1,17 @@
+
+<form  #loginForm="ngForm" (submit)="login(loginForm)">
+  <h2>Sign up</h2>
+  <mat-form-field>
+    <mat-label for="name">Name</mat-label>
+    <input matInput name="name" #name="ngModel" name="name" id="name" ngModel required>
+  </mat-form-field>
+  
+  <mat-form-field>
+    <mat-label for="password">Password</mat-label>
+    <input matInput type="password" name="password" #password="ngModel" name="password" id="password" ngModel>
+  </mat-form-field>
+  <button mat-raised-button color="primary" type="submit">Send</button>
+  <div class="message" *ngIf="message">
+    {{message}}
+  </div>
+  </form>

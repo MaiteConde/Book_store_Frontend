@@ -1,0 +1,82 @@
+
+
+.harry {
+    background-color: rgb(245, 242, 237);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 40em;
+    img {
+        width: 40em;
+        padding:2em;
+        margin: 5em;
+    }
+    h1 {
+        font-family: 'Crimson Text', serif !important;
+        font-size: 6em;
+        padding: 1em;
+    }
+    p{
+        padding-bottom: 4em;
+        margin: 0em 5em;
+
+    }
+    
+}
+.container {
+    display: flex;
+    div {
+        background-color:rgb(245, 241, 237) ;
+        margin: 5em;
+        height: 16em;
+        width: 100em;
+        justify-content: center;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        background-image: url(https://bridge315.qodeinteractive.com/wp-content/uploads/2020/01/h1-banner-01.jpg);
+        background-size: cover;
+        background-repeat: no-repeat;
+        
+    }
+    .ebooks {
+        background-image: url(https://bridge315.qodeinteractive.com/wp-content/uploads/2020/01/h1-banner-02.jpg);
+    }
+}
+button {
+    margin: 0em 5em;
+    background-color: black !important;
+    color: #DECAC8  !important;
+}
+h1 {
+    font-family: 'Crimson Text', serif !important;
+    
+    padding: 1em;
+}
+
+.authorCon {
+    display: flex;
+    justify-content: center;
+    
+    img {
+        height: 15em;
+        cursor: pointer;
+    }
+  
+    h3 {
+   
+        color: grey;
+    }
+    p {
+        max-width: 10em;
+    }
+}
+.author {
+    padding: 5em;
+}
+.tittle {
+    font-family: 'Crimson Text', serif !important;
+    text-align: center;
+    font-size: xx-large;
+    text-decoration: underline;
+}

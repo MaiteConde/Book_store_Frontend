@@ -1,0 +1,33 @@
+<div class="shop">
+<h1>Books</h1>
+<p>“A well-composed book is a magic carpet on which we are wafted to a world that we cannot enter in any other way.”
+  ― Caroline Gordon</p>
+</div>
+
+<div class="books">
+    <div class="image">
+        <img src="{{book.image_path}}" alt="">
+    </div>
+    <div class="book">
+      <h2>{{book.name}}</h2>
+      <p>{{book.Author.name}}</p>
+      <p>{{book.resume}}</p>
+      <p>${{book.price}}</p>
+      
+      <button mat-button routerLink="/login">Add to cart</button>      
+    </div>
+  </div>
+  
+  <div  class="reviewsTitle">
+<h2>Reviews</h2>
+<button mat-button routerLink="/login">Write a review</button>
+</div>
+<div class="reviewsContainer">
+<div class="reviews"  *ngFor="let review of book.Reviews">
+<h3>{{review.User.name}} said:</h3>
+ <h4> {{review.review}}</h4>
+ <h5>Created at: {{review.createdAt}}</h5>
+ <h5>Updated at: {{review.updatedAt}}</h5>
+</div>
+</div>
+  
