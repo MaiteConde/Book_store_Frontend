@@ -13,25 +13,23 @@ export class BookService {
   constructor(public httpClient: HttpClient, public userService: UserService, public router: Router) { }
 
 
-  insert(book:object):Observable<any>{
+  insert(book: object): Observable<any> {
     return this.httpClient.post('http://localhost:3000/books', book,
-    {headers: 
-      {authorization: this.userService.token} })
+    {headers:
+      {authorization: this.userService.token} });
   }
-  getGenres():Observable<any>{
-    return this.httpClient.get('http://localhost:3000/genres')
-  }
-
-  getAuthors():Observable<any>{
-    return this.httpClient.get('http://localhost:3000/authors')
+  getGenres(): Observable<any> {
+    return this.httpClient.get('http://localhost:3000/genres');
   }
 
-  delete(id:number):Observable<any>{
+  getAuthors(): Observable<any>{
+    return this.httpClient.get('http://localhost:3000/authors');
+  }
+
+  delete(id: number): Observable<any> {
     return this.httpClient.delete(`http://localhost:3000/books/${id}`, 
-    {headers: 
+    {headers:
       {authorization: this.userService.token} })
   }
-
-  
 }
 

@@ -19,7 +19,7 @@
     <button button mat-button [matMenuTriggerFor]="menu" *ngIf="userService['user']['id']"><mat-icon>person</mat-icon>
     </button>
     <mat-menu #menu="matMenu">
-    <button mat-menu-item *ngIf="userService['user']['id']">Profile</button>
+    <button mat-menu-item *ngIf="userService['user']['id']" routerLink="profile"> Profile</button>
     <button mat-menu-item *ngIf="userService['user']['id']" on-click="onClickMe()">Logout</button>
   </mat-menu>
   <button mat-button routerLink *ngIf="userService['user']['id']" routerLink="orders"><mat-icon>shopping_cart</mat-icon></button>

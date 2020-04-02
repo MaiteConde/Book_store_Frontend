@@ -6,22 +6,25 @@ import { Observable } from 'rxjs';
 })
 export class HomeService {
 
-  constructor(public httpClient:HttpClient) { }
+  constructor(public httpClient: HttpClient) { }
 public books;
-  getAllBooks(books:object):Observable<any>{
-   return this.httpClient.get('http://localhost:3000/books')
+  getAllBooks(books: object): Observable<any> {
+   return this.httpClient.get('http://localhost:3000/books');
   }
- getBook (id:number):Observable<any>{
-   return this.httpClient.get(`http://localhost:3000/books/${id}`)
+ getBook(id: number): Observable<any> {
+   return this.httpClient.get(`http://localhost:3000/books/${id}`);
  }
- getByName (name:string):Observable<any> {
-   return this.httpClient.get(`http://localhost:3000/books/name/harry`)
+ getByName(name: string): Observable<any> {
+   return this.httpClient.get(`http://localhost:3000/books/name/harry`);
  }
- getAuthor (name:string):Observable<any> {
-  return this.httpClient.get(`http://localhost:3000/authors/name/agatha`)
+ getAuthor (name: string): Observable<any> {
+  return this.httpClient.get(`http://localhost:3000/authors/name/agatha`);
 }
-review(review:object):Observable<any>{
-  return this.httpClient.post('http://localhost:3000/reviews', review)
+review(review: object): Observable<any> {
+  return this.httpClient.post('http://localhost:3000/reviews', review);
+}
+deleteReview(id:number):Observable<any> {
+  return this.httpClient.delete(`http://localhost:3000/reviews/${id}`);
 }
 
 }

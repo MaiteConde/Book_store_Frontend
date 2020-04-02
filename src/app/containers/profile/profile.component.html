@@ -1,0 +1,38 @@
+<div class="title">
+    <h1>Profile</h1>
+    <p> “I've got the key to my castle in the air, but whether I can unlock the door remains to be seen.”
+        ― Louisa May Alcott</p>
+  </div>
+  <div class="books">
+  
+
+<div class="user">
+
+    <h2>User info</h2>
+  <p> Name: {{userService['user']['name']}}</p>
+   <p> Email: {{userService['user']['mail']}}</p>
+</div>
+
+<div class="table">
+    <h2>All orders</h2>
+    <mat-accordion>
+        <mat-expansion-panel *ngFor ="let order of ordersService.orders">
+          <mat-expansion-panel-header>
+            <mat-panel-title> 
+              Item #{{order['id']}}
+             
+            </mat-panel-title>
+            
+          </mat-expansion-panel-header>
+          <div class="books" *ngFor = "let book of order.Books">
+           <h3>Book</h3> {{book['name']}}
+           <h3>Units</h3> {{book.OrderBook.units}}
+           <div class="image">
+           <img src="{{book['image_path']}}" alt="">
+        </div>
+        </div>
+        </mat-expansion-panel>
+        
+      </mat-accordion>
+    </div>
+

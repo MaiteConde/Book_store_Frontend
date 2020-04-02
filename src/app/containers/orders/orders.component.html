@@ -1,17 +1,48 @@
-<div class="table">
-<mat-accordion>
-    <mat-expansion-panel *ngFor ="let order of ordersService.orders">
-      <mat-expansion-panel-header>
-        <mat-panel-title>
-            {{order['deliveryDate']}}
-            {{order['status']}}
-        </mat-panel-title>
-        
-      </mat-expansion-panel-header>
-      <div class="books" *ngFor = "let book of order.Books">
-       {{book['name']}}
-    </div>
-    </mat-expansion-panel>
-  </mat-accordion>
+<div class="title">
+  <h1>Books orders</h1>
+  <p> “Some stories have to be written because no one would believe the absurdity of it all.”
+    ― Shannon L. Alder</p>
 </div>
+<div class="books">
+
   
+
+<div class="table">
+    <mat-accordion>
+        <mat-expansion-panel *ngFor ="let order of ordersService.orders">
+          <mat-expansion-panel-header>
+            <mat-panel-title> 
+              Item #{{order['id']}}
+             
+            </mat-panel-title>
+            
+          </mat-expansion-panel-header>
+          <div class="books" *ngFor = "let book of order.Books">
+           
+           <h3>Book</h3> {{book['name']}}
+           <h3>Units</h3> {{book.OrderBook.units}}
+           <h3>Delivery date</h3> {{order['deliveryDate']}}
+           <div class="image">
+         <div class="image"> <img src="{{book['image_path']}}" alt="">
+         </div> 
+    <button mat-button class="delete"  on-click="deleteOrder(order)"><mat-icon>delete</mat-icon></button>
+        </div>
+        </div>
+        </mat-expansion-panel>
+        
+      </mat-accordion>
+    </div>
+
+<div class="buttons">
+  <button mat-raised-button color="primary" routerLink="/books">Keep buying
+  </button>
+  <button mat-raised-button color="primary">Finalize purchase
+  </button>
+  </div>
+  </div>
+
+<!-- <div class="units" *ngFor = "let orderbook of book.OrderBook">
+  {{orderbook['units']}}
+ </div> -->
+  
+

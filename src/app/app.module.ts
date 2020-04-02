@@ -27,6 +27,10 @@ import { MatSelectModule } from '@angular/material/select';
 import { MatMenuModule } from '@angular/material/menu';
 import { OrdersComponent } from './containers/orders/orders.component';
 import { MatExpansionModule } from '@angular/material/expansion';
+import { MatDatepickerModule } from '@angular/material/datepicker';
+import { MatNativeDateModule } from '@angular/material/core';
+import { ProfileComponent } from './containers/profile/profile.component';
+// import { MatDatepicker } from '@angular/material/datepicker';
 
 
 // import { DemoMaterialModule } from './material-module';
@@ -44,6 +48,7 @@ import { MatExpansionModule } from '@angular/material/expansion';
     HarryComponent,
     AllBooksComponent,
     OrdersComponent,
+    ProfileComponent,
     
 
   ],
@@ -64,6 +69,8 @@ import { MatExpansionModule } from '@angular/material/expansion';
     FormsModule,
     MatMenuModule,
     MatExpansionModule,
+    MatDatepickerModule,
+    MatNativeDateModule
     
     // DemoMaterialModule
   ],

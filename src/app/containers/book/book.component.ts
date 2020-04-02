@@ -6,6 +6,7 @@ import { HomeService } from '../../services/home.service';
 import { UserService } from 'src/app/services/user.service';
 import { BookService } from 'src/app/services/book.service';
 import { NgForm } from '@angular/forms';
+import { OrdersService } from 'src/app/services/orders.service';
 
 
 
@@ -19,42 +20,66 @@ public book;
 public review;
 public message;
   constructor(private route: ActivatedRoute,
-    private homeService: HomeService,
-    public bookService: BookService,
-    private location: Location, public userService:UserService, public router:Router) { }
-    public admins =['superAdmin','admin','dios'];
+              private homeService: HomeService,
+              public bookService: BookService,
+              public ordersService:OrdersService,
+              private location: Location, public userService: UserService, public router: Router) { }
+    public admins = ['superAdmin', 'admin', 'dios'];
 
   ngOnInit(): void {
-    const id= +this.route.snapshot.paramMap.get('id');
-    this.homeService.getBook(id).subscribe(book =>this.book=book)
+    const id = +this.route.snapshot.paramMap.get('id');
+    this.homeService.getBook(id).subscribe(book => this.book = book);
   }
 
-  deleteBook(book){
-    const id= +this.route.snapshot.paramMap.get('id');
+  deleteBook(book) {
+    const id = +this.route.snapshot.paramMap.get('id');
     this.bookService.delete(id)
-    .subscribe(book=>{this.book=book;
-      this.router.navigate(['/books'])},
+    .subscribe(book => {this.book = book;
+        this.router.navigate(['/books'])},
    err=>console.error(err))
   }
+
+public unitsInput: number
+public dateInput: string
 public input: string
+public units: number
   postReview(reviewForm:NgForm) {
     const review = {
       BookId: +this.route.snapshot.paramMap.get('id'),
       UserId: this.userService['user']['id'],
       review: this.input
     }
-    console.log(review)
+    console.log(review);
     this.homeService.review(review)
     .subscribe (
-      (res:HttpResponse<object>)=>{
-        const bookId = +this.route.snapshot.paramMap.get('id')
-                this.homeService.getBook(bookId)
-                .subscribe (res=>{this.book=res},
-                  err=>console.error(err))
+      (res: HttpResponse<object>) => {
+        const bookId = +this.route.snapshot.paramMap.get('id');
+        this.homeService.getBook(bookId)
+                .subscribe (res => {this.book = res},
+                  err => console.error(err));
 
             },
 
-            
+    ); }
+    buyBook(buyForm:NgForm) {
+      const order = {
+        status: 'pending',
+        deliveryDate: this.dateInput,
+        UserId: this.userService['user']['id'],
+        books: [[+this.route.snapshot.paramMap.get('id'), this.unitsInput]]
+      }
+      
+      this.ordersService.addOrder(order)
+    .subscribe (
+
+      (res: HttpResponse<object>) => {
+        const bookId = +this.route.snapshot.paramMap.get('id');
+        console.log(this.dateInput)
+        this.homeService.getBook(bookId)
+                .subscribe (res => {this.book = res},
+                  err => console.error(err));
+
+            },
     )}
 }
 

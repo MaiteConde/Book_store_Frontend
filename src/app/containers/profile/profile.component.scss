@@ -1,0 +1,43 @@
+.title {
+    height: 30em;
+   background-color: rgb(245, 242, 237);
+   background-image: url(../../../assets/images/pngbarnmeh.png);
+    background-size: contain;
+    background-position: left;
+    background-repeat: no-repeat;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 5em;
+   p {
+       max-width: 50em;
+       text-align: center;
+   }
+  
+    h1 {
+        font-family: 'Crimson Text', serif !important;
+        font-size: 6em;
+        padding: 0.5em;
+    }
+
+}
+.user {
+display: flex;
+flex-direction: column;
+text-align: center;
+}
+
+.table {
+    text-align: center;
+    font-family: 'Crimson Text', serif !important;
+}
+h2 {
+    font-family: 'Crimson Text', serif !important;
+    text-decoration: underline;
+}
+
+img {
+    padding: 2em;
+    height: 30em;
+}

@@ -17,14 +17,25 @@
       <p>{{book.resume}}</p>
       
       <p>${{book.price}}</p>
-      <button mat-button routerLink="/login">Add to cart</button>      
+
+
+      <form #buyForm="ngForm" (submit)="buyBook(buyForm)"> 
+  
+        <mat-form-field>
+          <mat-label>Quantity</mat-label>
+          <input matInput name="units" type="number" #units="ngModel" name="units" id="units" [(ngModel)]= "unitsInput">
+        </mat-form-field>
+        <mat-form-field>
+          <mat-label>Choose a delivery date</mat-label>
+          <input matInput [matDatepicker]="picker" name="date" type="string" #date="ngModel" name="date" id="date" [(ngModel)]= "dateInput">
+          <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+          <mat-datepicker #picker></mat-datepicker>
+        </mat-form-field>
+  <button mat-raised-button color="primary" type="submit" >Add to cart</button>
+</form>    
     </div>
   
-
   </div>
-
-  
-
 
   
 <div class="reviewsTittle">
@@ -34,9 +45,10 @@
 
 <div class="reviews"  *ngFor="let review of book.Reviews">
 <h3>{{review.User.name}} said:</h3>
- <h4> {{review.review}}</h4>
+ <h4> {{review.review}}</h4> 
  <h5>Created at: {{review.createdAt}}</h5>
  <h5>Updated at: {{review.updatedAt}}</h5>
+ 
 </div>
 </div>
 
@@ -49,6 +61,7 @@ Write a review:
     <mat-label for="review">Review</mat-label>
     <input matInput name="review" #review="ngModel" id="review" [(ngModel)]= "input" required>
   </mat-form-field>
+
   <button mat-raised-button color="primary" type="submit" >Send</button>
 </form>
 </div>

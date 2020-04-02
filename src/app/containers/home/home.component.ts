@@ -8,7 +8,7 @@ import { HomeService } from 'src/app/services/home.service';
 })
 export class HomeComponent implements OnInit {
 
-  constructor(public homeService:HomeService) { }
+  constructor(public homeService: HomeService) { }
 public authors;
 public book;
 public author;
