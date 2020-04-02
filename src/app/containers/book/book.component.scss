@@ -20,6 +20,8 @@
 .books {
  display: flex;
  padding: 5em; 
+ display: flex;
+ 
  
 }
 img {
@@ -28,15 +30,14 @@ img {
 .book {
     padding: 5em;
     
+    
 }
 
-button {
-    background-color:black ;
-    color: #DECAC8;
-}
+
 .reviewsTitle {
     
     display: flex;
+    flex-direction: column;
     justify-content: space-between;
     align-items: center;
     margin: 1em;
@@ -56,4 +57,15 @@ h3 {
     }
     padding: 0.5em;
     border-radius: 0.2em;
+}
+.delete {
+    margin-bottom: 2em;
+}
+.write {
+    text-align: center;
+    margin-bottom: 5em;
+}
+button {
+    background-color:black ;
+    color: #DECAC8;
 }

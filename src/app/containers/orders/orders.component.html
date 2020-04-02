@@ -1,0 +1,17 @@
+<div class="table">
+<mat-accordion>
+    <mat-expansion-panel *ngFor ="let order of ordersService.orders">
+      <mat-expansion-panel-header>
+        <mat-panel-title>
+            {{order['deliveryDate']}}
+            {{order['status']}}
+        </mat-panel-title>
+        
+      </mat-expansion-panel-header>
+      <div class="books" *ngFor = "let book of order.Books">
+       {{book['name']}}
+    </div>
+    </mat-expansion-panel>
+  </mat-accordion>
+</div>
+  

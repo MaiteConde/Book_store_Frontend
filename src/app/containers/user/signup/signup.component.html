@@ -3,8 +3,7 @@
 
 <mat-form-field>
   <mat-label for="name">Name</mat-label>
-  <input matInput name="name" #name="ngModel" name="name" id="name" ngModel required
-  minlength="7">
+  <input matInput name="name" #name="ngModel" id="name" ngModel required>
 </mat-form-field>
 
 <mat-form-field>
@@ -19,8 +18,12 @@
   minlength="7">
 </mat-form-field>
 <button mat-raised-button color="primary" type="submit">Send</button>
-<div class="message" *ngIf="message">
-  {{message}}
+<div class="succesmessage" *ngIf="successMsg">
+  {{successMsg}}
+</div>
+
+<div class="errormessage">
+  {{errorMsg}}
 </div>
 </form>
 

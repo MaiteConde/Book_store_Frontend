@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { UserService } from 'src/app/services/user.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-header',
@@ -6,10 +8,16 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./header.component.scss']
 })
 export class HeaderComponent implements OnInit {
-
-  constructor() { }
+  public admins =['superAdmin','admin','dios'];
+  constructor(public userService:UserService, public router:Router) { }
 
   ngOnInit(): void {
   }
+  onClickMe(){
+    localStorage.removeItem('authToken') 
+    this.userService.setUser({});
+    this.router.navigate([''])
+  }
+  
 
 }

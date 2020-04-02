@@ -12,6 +12,8 @@ import { Router } from '@angular/router';
 })
 export class LoginComponent implements OnInit {
   public message:string;
+  public successMsg: string;
+  public errorMsg;
   constructor(public userService:UserService, public router: Router) { }
 
   ngOnInit(): void {
@@ -22,11 +24,20 @@ export class LoginComponent implements OnInit {
       this.userService.log(user)
       .subscribe(
         (res:HttpResponse<object>)=>{
-          this.message=res['message'];
-        setTimeout(() => this.message="", 2500);
+          const admins =['superAdmin','admin','dios'];
+          const redirectRoute = admins.includes(res['user']['role']) ? '/add':'/';
+          this.successMsg=res['message'];
+          this.userService.setUser(res['user']);
+         
+          this.userService.setToken(res['token']);
+        
+          localStorage.setItem('authToken',res['token']);
+          
+          setTimeout(() => this.router.navigate([redirectRoute]) , 2500);
       },
-      err=>console.error(err)
-    )
-    }
-  }
+      (error: HttpErrorResponse) => {
+        this.errorMsg = error.error.message;
+        setTimeout(() => this.errorMsg ="", 2500);
+      }
+      )}}
 }

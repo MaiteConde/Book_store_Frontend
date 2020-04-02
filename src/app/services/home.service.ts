@@ -20,4 +20,8 @@ public books;
  getAuthor (name:string):Observable<any> {
   return this.httpClient.get(`http://localhost:3000/authors/name/agatha`)
 }
+review(review:object):Observable<any>{
+  return this.httpClient.post('http://localhost:3000/reviews', review)
+}
+
 }

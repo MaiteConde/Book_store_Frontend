@@ -11,7 +11,11 @@
     <input matInput type="password" name="password" #password="ngModel" name="password" id="password" ngModel>
   </mat-form-field>
   <button mat-raised-button color="primary" type="submit">Send</button>
-  <div class="message" *ngIf="message">
-    {{message}}
+  <div class="succesmessage" *ngIf="successMsg">
+    {{successMsg}}
+  </div>
+
+  <div class="errormessage">
+    {{errorMsg}}
   </div>
   </form>

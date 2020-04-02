@@ -10,19 +10,28 @@
     </div>
     <div class="book">
       <h2>{{book.name}}</h2>
+      <button mat-button class="delete"  *ngIf="admins.includes(userService['user']['role'])" on-click="deleteBook(book)"><mat-icon>delete</mat-icon></button>  
+   
+
       <p>{{book.Author.name}}</p>
       <p>{{book.resume}}</p>
-      <p>${{book.price}}</p>
       
+      <p>${{book.price}}</p>
       <button mat-button routerLink="/login">Add to cart</button>      
     </div>
-  </div>
   
-  <div  class="reviewsTitle">
-<h2>Reviews</h2>
-<button mat-button routerLink="/login">Write a review</button>
-</div>
+
+  </div>
+
+  
+
+
+  
+<div class="reviewsTittle">
+<h1>Reviews:</h1>
+  
 <div class="reviewsContainer">
+
 <div class="reviews"  *ngFor="let review of book.Reviews">
 <h3>{{review.User.name}} said:</h3>
  <h4> {{review.review}}</h4>
@@ -30,4 +39,17 @@
  <h5>Updated at: {{review.updatedAt}}</h5>
 </div>
 </div>
+
+<div class="write">
+ 
+Write a review:
+<form #reviewForm="ngForm" (submit)="postReview(reviewForm)"> 
   
+  <mat-form-field>
+    <mat-label for="review">Review</mat-label>
+    <input matInput name="review" #review="ngModel" id="review" [(ngModel)]= "input" required>
+  </mat-form-field>
+  <button mat-raised-button color="primary" type="submit" >Send</button>
+</form>
+</div>
+</div>

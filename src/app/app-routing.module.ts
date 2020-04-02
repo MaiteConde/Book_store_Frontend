@@ -9,6 +9,7 @@ import { BookComponent } from './containers/book/book.component';
 import { AddBookComponent } from './containers/add-book/add-book.component';
 import { HarryComponent } from './containers/harry/harry.component';
 import { AllBooksComponent } from './containers/all-books/all-books.component';
+import { OrdersComponent } from './containers/orders/orders.component';
 
 
 
@@ -20,6 +21,7 @@ const routes: Routes = [
   {path:'books/harry', component:HarryComponent},
   {path:'add', component:AddBookComponent},
   {path:'books', component:AllBooksComponent},
+  {path:'orders', component:OrdersComponent},
   {path:'**',component:NotFoundComponent},
   
   

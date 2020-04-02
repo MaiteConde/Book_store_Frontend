@@ -2,12 +2,11 @@ form{
     display: flex;
     flex-direction: column;
     align-items: center;
+    margin-bottom: 10em;
 }
 .message{
     padding: 0.8em;
     margin-top: 1em;
-    border-radius: 0.3em;
-    background-color: #DECAC8 !important;
     color: black;
     width: fit-content;
 }

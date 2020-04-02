@@ -5,9 +5,27 @@
   <div class="userZone">
   
     <button mat-button routerLink="">Home</button>
-    <button mat-button routerLink="add">Add book</button>
-    <button mat-button routerLink="login">Login</button>
-    <button mat-button routerLink="signup">Sign Up</button>
+    <button mat-button routerLink="add" *ngIf="admins.includes(userService['user']['role'])"
+
+    >Add book</button>
+    <button mat-button routerLink="login" *ngIf="!userService['user']['id']">Login</button>
+    <button mat-button routerLink="signup" *ngIf="!userService['user']['id']">Sign Up</button>
+
+    <!-- <button mat-button [matMenuTriggerFor]="menu" *ngIf="userService['user']['id']">{{userService['user']['name']}} </button>
+<mat-menu #menu="matMenu">
+  <button mat-menu-item*ngIf="userService['user']['id']" on-click="onClickMe()">Logout</button>
+  <button mat-menu-item*ngIf="userService['user']['id']">Cart</button>
+</mat-menu> -->
+    <button button mat-button [matMenuTriggerFor]="menu" *ngIf="userService['user']['id']"><mat-icon>person</mat-icon>
+    </button>
+    <mat-menu #menu="matMenu">
+    <button mat-menu-item *ngIf="userService['user']['id']">Profile</button>
+    <button mat-menu-item *ngIf="userService['user']['id']" on-click="onClickMe()">Logout</button>
+  </mat-menu>
+  <button mat-button routerLink *ngIf="userService['user']['id']" routerLink="orders"><mat-icon>shopping_cart</mat-icon></button>
+
+
+
    
   </div>
 </mat-toolbar>

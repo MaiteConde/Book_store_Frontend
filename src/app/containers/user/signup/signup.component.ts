@@ -11,8 +11,9 @@ import { NgForm } from '@angular/forms';
   styleUrls: ['./signup.component.scss'],
 })
 export class SignupComponent implements OnInit {
- 
-  public message:string;
+  public errorMsg:string;
+  public successMsg:string;
+  
 
   constructor(public userService:UserService, public router:Router) { }
 
@@ -24,12 +25,15 @@ export class SignupComponent implements OnInit {
       this.userService.signup(user)
       .subscribe(
         (res:HttpResponse<object>)=>{
-          this.message=res['message'];
+          this.successMsg=res['message'];
           setTimeout(() => {
             this.router.navigate(['login'])
           }, 2000);
       },
-      err=>console.error(err)
+      (error:HttpErrorResponse)=>{
+        this.errorMsg=error['error']['message'];
+        setTimeout(() =>  this.errorMsg="" , 2000);
+      }
     )
     }
   }

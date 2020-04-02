@@ -5,6 +5,7 @@ import { HttpResponse, HttpErrorResponse } from '@angular/common/http';
 import { NgForm } from '@angular/forms';
 import { Router } from '@angular/router';
 
+
 @Component({
   selector: 'app-add-book',
   templateUrl: './add-book.component.html',
@@ -20,6 +21,9 @@ export class AddBookComponent implements OnInit {
   public authors;
   public AuthorId;
   public book;
+  public errorMsg:string;
+  public successMsg:string;
+
   ngOnInit(){
     this.bookService.getGenres()
     .subscribe(
@@ -35,20 +39,24 @@ export class AddBookComponent implements OnInit {
   
  addBook(addBookForm:NgForm) {
   if(addBookForm.valid){
-    const book =addBookForm.value;
+    const book = addBookForm.value;
     this.bookService.insert(book)
     .subscribe(
       (res:HttpResponse<object>)=>{
-        this.message=res['message'];
+        this.successMsg=res['message'];
         setTimeout(() => {
-          this.router.navigate(['login'])
+          this.router.navigate([''])
         }, 2000);
     },
-    err=>console.error(err)
+    (error:HttpErrorResponse)=>{
+      this.errorMsg=error['error']['message'];
+      setTimeout(() =>  this.errorMsg="" , 2000);
+    }
   )
+  }
   }
  }
 
   
 
-}
+

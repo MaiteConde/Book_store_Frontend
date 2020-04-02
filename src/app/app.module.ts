@@ -24,6 +24,9 @@ import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { HarryComponent } from './containers/harry/harry.component';
 import { AllBooksComponent } from './containers/all-books/all-books.component';
 import { MatSelectModule } from '@angular/material/select';
+import { MatMenuModule } from '@angular/material/menu';
+import { OrdersComponent } from './containers/orders/orders.component';
+import { MatExpansionModule } from '@angular/material/expansion';
 
 
 // import { DemoMaterialModule } from './material-module';
@@ -40,6 +43,7 @@ import { MatSelectModule } from '@angular/material/select';
     AddBookComponent,
     HarryComponent,
     AllBooksComponent,
+    OrdersComponent,
     
 
   ],
@@ -57,7 +61,10 @@ import { MatSelectModule } from '@angular/material/select';
     MatDialogModule,
     ReactiveFormsModule,
     MatSelectModule,
-    FormsModule
+    FormsModule,
+    MatMenuModule,
+    MatExpansionModule,
+    
     // DemoMaterialModule
   ],
   providers: [],

@@ -10,7 +10,8 @@
     align-items: center;
     justify-content: center;
    p {
-       max-width: 30em;
+       max-width: 50em;
+       text-align: center;
    }
   
     h1 {
@@ -25,14 +26,13 @@
     padding: 5em;
     display: flex;
     flex-wrap: wrap;
-    margin-left: 8em;
+    
    
     .book {
         padding: 4em;
         width: 20em;
         text-align: center;
-        text-overflow: ellipsis;
-        max-width: 10em;
+        max-width: 30em;
         margin: 2em;
        
     }
